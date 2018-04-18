@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>LaGrande Windtalker</title>
+    <script src="https://unpkg.com/vue"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.1/moment.min.js"></script>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+
+    <script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js" integrity="sha384-slN8GvtUJGnv6ca26v8EzVaR9DC58QEwsIk9q1QXdCU8Yu8ck/tL/5szYlBbqmS+" crossorigin="anonymous"></script>
+
+  </head>
+  <body>
+  <div id="app">
+    <div class="container">
+      <table class="table table-hover table-sm table-bordered">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Elevation</th>
+            <th scope="col">Updated</th>
+            <th scope="col">Temp</th>
+            <th scope="col">Dew Point</th>
+            <th scope="col">Relative Humidity</th>
+            <th scope="col">Wind Direction <i class="fas fa-compass"></i></th>
+            <th scope="col">Wind Speed (Avg.)</th>
+            <th scope="col">Wind Speed (Gusts)</th>
+            <th scope="col">Weather <i class="fas fa-bolt"></i></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="station in stations" v-bind:class="{ 'bg-warning text-dark' : station.wind_mph > 8, 'bg-danger text-white' : station.wind_mph > 12, 'bg-warning text-dark' : station.wind_gust_mph > 8, 'bg-danger text-white' : station.wind_gust_mph > 12 }">
+            <th scope="row"><a v-bind:href="station.history_url" target="_blank">{{ station.station_id }}</a></th>
+            <td>{{ station.observation_location.elevation }}</td>
+            <td>{{ convertDate(station.local_time_rfc822) }}</td>
+            <td>{{ station.temp_f }}</td>
+            <td>{{ station.dewpoint_f }}</td>
+            <td>{{ station.relative_humidity }}</td>
+            <td>{{ station.wind_dir }}</td>
+            <td>{{ station.wind_mph }}</td>
+            <td>{{ station.wind_gust_mph }}</td>
+            <td>{{ station.weather }}</td>
+          </tr>
+        </tbody>
+      </table>
+
+
+    </div><!-- .container -->
+  </div><!-- #app -->
+  </body>
+
+  <script src="app.js"></script>
+</html>
