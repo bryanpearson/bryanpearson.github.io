@@ -1,22 +1,20 @@
 var app = new Vue({
   el: '#app',
   data: {
+    station_list: ['KLGD', 'KORLAGRA7', 'KORLAGRA9', 'KORLAGRA11', 'KORLAGRA13', 'KORLAGRA15', 'KORUNION5', 'KORUNION2', 'KORCOVE8', 'MD3793', 'KLGD', 'KORIMBLE2', 'MODT18'],
     stations: []
   },
 
   mounted() {
-    axios.get("http://api.wunderground.com/api/6455e4cdcf958bbd/conditions/q/pws:KORLAGRA7.json")
-      .then(response => { this.stations.push(response.data.current_observation)  })
-    axios.get("http://api.wunderground.com/api/6455e4cdcf958bbd/conditions/q/pws:KORLAGRA11.json")
-      .then(response => { this.stations.push(response.data.current_observation)  })
-    axios.get("http://api.wunderground.com/api/6455e4cdcf958bbd/conditions/q/pws:KORLAGRA15.json")
-      .then(response => { this.stations.push(response.data.current_observation)  })
-    axios.get("http://api.wunderground.com/api/6455e4cdcf958bbd/conditions/q/pws:KORUNION5.json")
-      .then(response => { this.stations.push(response.data.current_observation)  })
-    axios.get("http://api.wunderground.com/api/6455e4cdcf958bbd/conditions/q/pws:KORUNION2.json")
-      .then(response => { this.stations.push(response.data.current_observation)  })
-    axios.get("http://api.wunderground.com/api/6455e4cdcf958bbd/conditions/q/pws:KORCOVE8.json")
-      .then(response => { this.stations.push(response.data.current_observation)  })
+    this.$nextTick(function () {
+      // Code that will run only after the
+      // entire view has been rendered
+      for (i=0; i < this.station_list.length; i++) {
+        console.log(this.station_list[i])
+        axios.get("http://api.wunderground.com/api/6455e4cdcf958bbd/conditions/q/pws:" + this.station_list[i] +".json")
+          .then(response => { this.stations.push(response.data.current_observation)  })
+      }
+    })
   },
 
   methods: {

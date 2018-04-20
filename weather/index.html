@@ -31,7 +31,8 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="station in stations" v-bind:class="{ 'bg-warning text-dark' : station.wind_mph > 8, 'bg-danger text-white' : station.wind_mph > 12, 'bg-warning text-dark' : station.wind_gust_mph > 8, 'bg-danger text-white' : station.wind_gust_mph > 12 }">
+
+          <tr v-for="station in stations" v-if="station" v-bind:class="{ 'bg-warning text-dark' : station.wind_mph > 8, 'bg-danger text-white' : station.wind_mph > 12, 'bg-warning text-dark' : station.wind_gust_mph > 8, 'bg-danger text-white' : station.wind_gust_mph > 12 }">
             <th scope="row"><a v-bind:href="station.history_url" target="_blank">{{ station.station_id }}</a></th>
             <td>{{ station.observation_location.elevation }}</td>
             <td>{{ convertDate(station.local_time_rfc822) }}</td>
@@ -43,6 +44,7 @@
             <td>{{ station.wind_gust_mph }}</td>
             <td>{{ station.weather }}</td>
           </tr>
+          <tr v-else>Offline</tr>
         </tbody>
       </table>
 
