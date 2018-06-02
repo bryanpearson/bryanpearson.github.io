@@ -1,7 +1,7 @@
 var app = new Vue({
   el: '#app',
   data: {
-    station_list: ['KLGD', 'KORLAGRA7', 'KORLAGRA9', 'KORLAGRA11', 'KORLAGRA13', 'KORLAGRA15', 'KORUNION5', 'KORUNION2', 'KORCOVE8', 'MD3793', 'KLGD', 'KORIMBLE2', 'MODT18'],
+    station_list: ['KLGD', 'KORLAGRA7', 'KORLAGRA9', 'KORLAGRA11', 'KORUNION2', 'KORCOVE8', 'KORIMBLE2'],
     stations: []
   },
 
