@@ -32,19 +32,130 @@
         </thead>
         <tbody>
 
-          <tr v-for="station in stations" v-if="station" v-bind:class="{ 'bg-warning text-dark' : station.wind_mph > 8, 'bg-danger text-white' : station.wind_mph > 12, 'bg-warning text-dark' : station.wind_gust_mph > 8, 'bg-danger text-white' : station.wind_gust_mph > 12 }">
-            <th scope="row"><a v-bind:href="station.history_url" target="_blank">{{ station.station_id }}</a></th>
-            <td>{{ station.observation_location.elevation }}</td>
-            <td>{{ convertDate(station.local_time_rfc822) }}</td>
-            <td>{{ station.temp_f }}</td>
-            <td>{{ station.dewpoint_f }}</td>
-            <td>{{ station.relative_humidity }}</td>
-            <td>{{ station.wind_dir }}</td>
-            <td>{{ station.wind_mph }}</td>
-            <td>{{ station.wind_gust_mph }}</td>
-            <td>{{ station.weather }}</td>
+          <!-- <tr v-for="(value, key) in stations" v-bind:class="{ 'bg-warning text-dark' : value.wind_mph > 8, 'bg-danger text-white' : value.wind_mph > 12, 'bg-warning text-dark' : value.wind_gust_mph > 8, 'bg-danger text-white' : value.wind_gust_mph > 12 }">
+            <th scope="row"><a v-bind:href="value.history_url" target="_blank">{{ value.station_id }}</a></th>
+            <td>{{ value.observation_location.elevation }}</td>
+            <td>{{ convertDate(value.local_time_rfc822) }}</td>
+            <td>{{ value.temp_f }}</td>
+            <td>{{ value.dewpoint_f }}</td>
+            <td>{{ value.relative_humidity }}</td>
+            <td>{{ value.wind_dir }}</td>
+            <td>{{ value.wind_mph }}</td>
+            <td>{{ value.wind_gust_mph }}</td>
+            <td>{{ value.weather }}</td>
+          </tr> -->
+
+          <tr v-if="station_KLGD" v-bind:class="{ 'bg-warning text-dark' : station_KLGD.wind_mph > 8, 'bg-danger text-white' : station_KLGD.wind_mph > 12, 'bg-warning text-dark' : station_KLGD.wind_gust_mph > 8, 'bg-danger text-white' : station_KLGD.wind_gust_mph > 12 }">
+            <th scope="row"><a v-bind:href="station_KLGD.history_url" target="_blank">{{ station_KLGD.station_id }}</a></th>
+            <td>{{ station_KLGD.observation_location.elevation }}</td>
+            <td>{{ convertDate(station_KLGD.local_time_rfc822) }}</td>
+            <td>{{ station_KLGD.temp_f }}</td>
+            <td>{{ station_KLGD.dewpoint_f }}</td>
+            <td>{{ station_KLGD.relative_humidity }}</td>
+            <td>{{ station_KLGD.wind_dir }}</td>
+            <td>{{ station_KLGD.wind_mph }}</td>
+            <td>{{ station_KLGD.wind_gust_mph }}</td>
+            <td>{{ station_KLGD.weather }}</td>
           </tr>
-          <tr v-else>Offline</tr>
+          <tr v-else>
+            <th>KLGD</th>
+            <td>OFFLINE</td>
+            <td>OFFLINE</td>
+            <td>OFFLINE</td>
+            <td>OFFLINE</td>
+            <td>OFFLINE</td>
+            <td>OFFLINE</td>
+            <td>OFFLINE</td>
+            <td>OFFLINE</td>
+            <td>OFFLINE</td>
+          </tr>
+          <tr v-if="station_KORLAGRA7" v-bind:class="{ 'bg-warning text-dark' : station_KORLAGRA7.wind_mph > 8, 'bg-danger text-white' : station_KORLAGRA7.wind_mph > 12, 'bg-warning text-dark' : station_KORLAGRA7.wind_gust_mph > 8, 'bg-danger text-white' : station_KORLAGRA7.wind_gust_mph > 12 }">
+            <th scope="row"><a v-bind:href="station_KORLAGRA7.history_url" target="_blank">{{ station_KORLAGRA7.station_id }}</a></th>
+            <td>{{ station_KORLAGRA7.observation_location.elevation }}</td>
+            <td>{{ convertDate(station_KORLAGRA7.local_time_rfc822) }}</td>
+            <td>{{ station_KORLAGRA7.temp_f }}</td>
+            <td>{{ station_KORLAGRA7.dewpoint_f }}</td>
+            <td>{{ station_KORLAGRA7.relative_humidity }}</td>
+            <td>{{ station_KORLAGRA7.wind_dir }}</td>
+            <td>{{ station_KORLAGRA7.wind_mph }}</td>
+            <td>{{ station_KORLAGRA7.wind_gust_mph }}</td>
+            <td>{{ station_KORLAGRA7.weather }}</td>
+          </tr>
+          <tr v-if="station_KORLAGRA9" v-bind:class="{ 'bg-warning text-dark' : station_KORLAGRA9.wind_mph > 8, 'bg-danger text-white' : station_KORLAGRA9.wind_mph > 12, 'bg-warning text-dark' : station_KORLAGRA9.wind_gust_mph > 8, 'bg-danger text-white' : station_KORLAGRA9.wind_gust_mph > 12 }">
+            <th scope="row"><a v-bind:href="station_KORLAGRA9.history_url" target="_blank">{{ station_KORLAGRA9.station_id }}</a></th>
+            <td>{{ station_KORLAGRA9.observation_location.elevation }}</td>
+            <td>{{ convertDate(station_KORLAGRA9.local_time_rfc822) }}</td>
+            <td>{{ station_KORLAGRA9.temp_f }}</td>
+            <td>{{ station_KORLAGRA9.dewpoint_f }}</td>
+            <td>{{ station_KORLAGRA9.relative_humidity }}</td>
+            <td>{{ station_KORLAGRA9.wind_dir }}</td>
+            <td>{{ station_KORLAGRA9.wind_mph }}</td>
+            <td>{{ station_KORLAGRA9.wind_gust_mph }}</td>
+            <td>{{ station_KORLAGRA9.weather }}</td>
+          </tr>
+          <tr v-if="station_KORLAGRA11" v-bind:class="{ 'bg-warning text-dark' : station_KORLAGRA11.wind_mph > 8, 'bg-danger text-white' : station_KORLAGRA11.wind_mph > 12, 'bg-warning text-dark' : station_KORLAGRA11.wind_gust_mph > 8, 'bg-danger text-white' : station_KORLAGRA11.wind_gust_mph > 12 }">
+            <th scope="row"><a v-bind:href="station_KORLAGRA11.history_url" target="_blank">{{ station_KORLAGRA11.station_id }}</a></th>
+            <td>{{ station_KORLAGRA11.observation_location.elevation }}</td>
+            <td>{{ convertDate(station_KORLAGRA11.local_time_rfc822) }}</td>
+            <td>{{ station_KORLAGRA11.temp_f }}</td>
+            <td>{{ station_KORLAGRA11.dewpoint_f }}</td>
+            <td>{{ station_KORLAGRA11.relative_humidity }}</td>
+            <td>{{ station_KORLAGRA11.wind_dir }}</td>
+            <td>{{ station_KORLAGRA11.wind_mph }}</td>
+            <td>{{ station_KORLAGRA11.wind_gust_mph }}</td>
+            <td>{{ station_KORLAGRA11.weather }}</td>
+          </tr>
+          <tr v-if="station_KORUNION2" v-bind:class="{ 'bg-warning text-dark' : station_KORUNION2.wind_mph > 8, 'bg-danger text-white' : station_KORUNION2.wind_mph > 12, 'bg-warning text-dark' : station_KORUNION2.wind_gust_mph > 8, 'bg-danger text-white' : station_KORUNION2.wind_gust_mph > 12 }">
+            <th scope="row"><a v-bind:href="station_KORUNION2.history_url" target="_blank">{{ station_KORUNION2.station_id }}</a></th>
+            <td>{{ station_KORUNION2.observation_location.elevation }}</td>
+            <td>{{ convertDate(station_KORUNION2.local_time_rfc822) }}</td>
+            <td>{{ station_KORUNION2.temp_f }}</td>
+            <td>{{ station_KORUNION2.dewpoint_f }}</td>
+            <td>{{ station_KORUNION2.relative_humidity }}</td>
+            <td>{{ station_KORUNION2.wind_dir }}</td>
+            <td>{{ station_KORUNION2.wind_mph }}</td>
+            <td>{{ station_KORUNION2.wind_gust_mph }}</td>
+            <td>{{ station_KORUNION2.weather }}</td>
+          </tr>
+          <tr v-if="station_KORCOVE8" v-bind:class="{ 'bg-warning text-dark' : station_KORCOVE8.wind_mph > 8, 'bg-danger text-white' : station_KORCOVE8.wind_mph > 12, 'bg-warning text-dark' : station_KORCOVE8.wind_gust_mph > 8, 'bg-danger text-white' : station_KORCOVE8.wind_gust_mph > 12 }">
+            <th scope="row"><a v-bind:href="station_KORCOVE8.history_url" target="_blank">{{ station_KORCOVE8.station_id }}</a></th>
+            <td>{{ station_KORCOVE8.observation_location.elevation }}</td>
+            <td>{{ convertDate(station_KORCOVE8.local_time_rfc822) }}</td>
+            <td>{{ station_KORCOVE8.temp_f }}</td>
+            <td>{{ station_KORCOVE8.dewpoint_f }}</td>
+            <td>{{ station_KORCOVE8.relative_humidity }}</td>
+            <td>{{ station_KORCOVE8.wind_dir }}</td>
+            <td>{{ station_KORCOVE8.wind_mph }}</td>
+            <td>{{ station_KORCOVE8.wind_gust_mph }}</td>
+            <td>{{ station_KORCOVE8.weather }}</td>
+          </tr>
+          <tr v-if="station_KORIMBLE2" v-bind:class="{ 'bg-warning text-dark' : station_KORIMBLE2.wind_mph > 8, 'bg-danger text-white' : station_KORIMBLE2.wind_mph > 12, 'bg-warning text-dark' : station_KORIMBLE2.wind_gust_mph > 8, 'bg-danger text-white' : station_KORIMBLE2.wind_gust_mph > 12 }">
+            <th scope="row"><a v-bind:href="station_KORIMBLE2.history_url" target="_blank">{{ station_KORIMBLE2.station_id }}</a></th>
+            <td>{{ station_KORIMBLE2.observation_location.elevation }}</td>
+            <td>{{ convertDate(station_KORIMBLE2.local_time_rfc822) }}</td>
+            <td>{{ station_KORIMBLE2.temp_f }}</td>
+            <td>{{ station_KORIMBLE2.dewpoint_f }}</td>
+            <td>{{ station_KORIMBLE2.relative_humidity }}</td>
+            <td>{{ station_KORIMBLE2.wind_dir }}</td>
+            <td>{{ station_KORIMBLE2.wind_mph }}</td>
+            <td>{{ station_KORIMBLE2.wind_gust_mph }}</td>
+            <td>{{ station_KORIMBLE2.weather }}</td>
+          </tr>
+
+
+
+<!--           <tr v-else>
+            <th scope="row">{{ station.station_id }}</th>
+            <td>Offline</td>
+            <td>Offline</td>
+            <td>Offline</td>
+            <td>Offline</td>
+            <td>Offline</td>
+            <td>Offline</td>
+            <td>Offline</td>
+            <td>Offline</td>
+            <td>Offline</td>
+          </tr> -->
         </tbody>
       </table>
 
